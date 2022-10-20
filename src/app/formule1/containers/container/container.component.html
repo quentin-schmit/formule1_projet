@@ -1,1 +1,5 @@
-{{res$ | async | json}}
+{{ Drivers$ | async | json }}
+
+<div *ngFor="let driver of Drivers$ | async">
+  <app-component [driver]="driver"></app-component>
+</div>
