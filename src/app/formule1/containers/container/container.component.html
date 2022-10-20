@@ -1,5 +1,24 @@
-{{ Drivers$ | async | json }}
+<div class="w-100">
+  <div class="w-30">
+    <h2 class="center">Nationalité</h2>
+    <button
+      class="bouton w-100"
+      (click)="search$.next(n)"
+      *ngFor="let n of nationality$ | async"
+      type="button"
+    >
+      <div>
+        {{ n }}
+      </div></button
+    ><br />
+  </div>
 
-<div *ngFor="let driver of Drivers$ | async">
-  <app-component [driver]="driver"></app-component>
+  <div class="w-70">
+    <h2 class="center">Pilotes</h2>
+    <div *ngFor="let driver of filteredNationality$ | async">
+      <div class="app-component w-100">
+        <app-component [driver]="driver"></app-component>
+      </div>
+    </div>
+  </div>
 </div>
